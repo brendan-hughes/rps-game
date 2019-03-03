@@ -10,14 +10,6 @@ let roundElement = document.querySelector("#num-rounds");
 let statusTextElement = document.querySelector("#status-text");
 let resetButtonElement = document.querySelector("#reset-btn");
 
-let resetVisible = function () {
-  if (userScore > 0 || compScore > 0) {
-    resetButtonElement.setAttribute("style","visibility:visible;");
-  }
-  else {
-    resetButtonElement.setAttribute("style","visibility:hidden;");
-  }
-}
 
 let rollRock = function () {
   let userChoice = 0;
@@ -96,7 +88,7 @@ let incrementScore = function(outcome) {
   rounds ++;
   roundElement.innerHTML=rounds;
   drawElement.innerHTML=draws;
-  resetVisible()
+  resetButtonElement.setAttribute("style","visibility:visible;");
   userScoreElement.innerHTML=userScore;
   compScoreElement.innerHTML=compScore;
 };
@@ -106,8 +98,7 @@ let reset = function() {
     compScore = 0;
     rounds = 0;
     draws = 0;
-    
-    resetVisible()
+    resetButtonElement.setAttribute("style","visibility:hidden;");
     statusTextElement.innerHTML = "Welcome! Pick your weapon.";
     userScoreElement.innerHTML=userScore;
     compScoreElement.innerHTML=compScore;
