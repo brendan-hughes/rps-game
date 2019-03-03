@@ -11,6 +11,19 @@ body {
   color:#E6FAFC;
 }
 
+.portfolio-link {
+  position:absolute;
+  top:5px;
+  left:5px;
+  color:#E6FAFC;
+  text-decoration: none;
+  transition:0.4s;
+}
+.portfolio-link:hover {
+  text-decoration:underline;
+    transition:0.4s;
+}
+
 .main-header {
   background:#FF3366;
   color:#E6FAFC;
@@ -155,19 +168,6 @@ footer a {
 }
 footer a:not(.footer-link-first) {
 	margin-left:10px;
-}
-
-.portfolio-link {
-  position:absolute;
-  top:5px;
-  left:5px;
-  color:#E6FAFC;
-  text-decoration: none;
-  transition:0.4s;
-}
-.portfolio-link:hover {
-  text-decoration:underline;
-    transition:0.4s;
 }
 
 @media only screen and (max-width: 600px) {

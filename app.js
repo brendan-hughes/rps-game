@@ -10,7 +10,6 @@ let roundElement = document.querySelector("#num-rounds");
 let statusTextElement = document.querySelector("#status-text");
 let resetButtonElement = document.querySelector("#reset-btn");
 
-
 let rollRock = function () {
   let userChoice = 0;
   let compChoice =Math.floor(Math.random() * 3);
