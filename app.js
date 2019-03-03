@@ -1,9 +1,14 @@
-var userScore = 0;
-var compScore =0;
-var userScoreElement = document.querySelector("#user-score");
-var compScoreElement = document.querySelector("#comp-score");
-var statusTextElement = document.querySelector("#status-text");
-var resetButtonElement = document.querySelector("#reset-btn");
+let userScore = 0;
+let compScore =0;
+let draws = 0;
+let rounds = 0;
+
+let userScoreElement = document.querySelector("#user-score");
+let compScoreElement = document.querySelector("#comp-score");
+let drawElement = document.querySelector("#num-draws");
+let roundElement = document.querySelector("#num-rounds");
+let statusTextElement = document.querySelector("#status-text");
+let resetButtonElement = document.querySelector("#reset-btn");
 
 let resetVisible = function () {
   if (userScore > 0 || compScore > 0) {
@@ -15,70 +20,82 @@ let resetVisible = function () {
 }
 
 let rollRock = function () {
-  var userChoice = 0;
-  var compChoice =Math.floor(Math.random() * 3);
+  let userChoice = 0;
+  let compChoice =Math.floor(Math.random() * 3);
     if (compChoice === 0) {
       statusTextElement.innerHTML = "Computer picked rock. It's a draw.";
+      let outcome = 2;
+      incrementScore(outcome);
     }
     else if (compChoice === 1) {
       statusTextElement.innerHTML = "Computer picked paper. You lose!";
-      var winner = false;
-      incrementScore(winner);
+       outcome = 0;
+      incrementScore(outcome);
     }
     else {
       statusTextElement.innerHTML = "Computer picked scissors. You win!";
-      var winner = true;
-      incrementScore(winner);
+      let outcome = 1;
+      incrementScore(outcome);
     }
   };
 
   let rollPaper = function () {
-    var userChoice = 0;
-    var compChoice =Math.floor(Math.random() * 3);
+    let userChoice = 0;
+    let compChoice =Math.floor(Math.random() * 3);
     if (compChoice === 0) {
       statusTextElement.innerHTML = "Computer picked rock. You win!";
-      var winner = true;
-      incrementScore(winner);
+      let outcome = 1;
+      incrementScore(outcome);
     }
     else if (compChoice === 1) {
       statusTextElement.innerHTML = "Computer picked paper. It's a draw.";
+      let outcome = 2;
+      incrementScore(outcome);
     }
     else {
       statusTextElement.innerHTML = "Computer picked scissors. You lose!";
-      var winner = false;
-      incrementScore(winner);
+      let outcome = 0;
+      incrementScore(outcome);
     }
   };
 
 
   let rollScissors = function () {
-    var userChoice = 0;
-    var compChoice =Math.floor(Math.random() * 3);
+    let userChoice = 0;
+    let compChoice =Math.floor(Math.random() * 3);
     console.log("Computer choice is "+compChoice);
 
     if (compChoice === 0) {
       statusTextElement.innerHTML = "Computer picked rock. You lose!";
-      var winner = false;
-      incrementScore(winner);
+      let outcome = 0;
+      incrementScore(outcome);
     }
     else if (compChoice === 1) {
       statusTextElement.innerHTML = "Computer picked paper. You win!";
-      var winner = true;
-      incrementScore(winner);
+      let outcome = 1;
+      incrementScore(outcome);
     }
     else {
       statusTextElement.innerHTML = "Computer picked scissors. It's a draw.";
+      let outcome = 2;
+      incrementScore(outcome);
     }
   };
 
 
-let incrementScore = function(winner) {
-  if (winner) {
+let incrementScore = function(outcome) {
+  if (outcome===1) {
     userScore++;
   }
-  else {
+  else if (outcome===0){
     compScore ++;
   }
+  else {
+    draws ++;
+  }
+  rounds ++;
+  roundElement.innerHTML=rounds;
+  drawElement.innerHTML=draws;
   resetVisible()
   userScoreElement.innerHTML=userScore;
   compScoreElement.innerHTML=compScore;
@@ -87,10 +104,14 @@ let incrementScore = function(winner) {
 let reset = function() {
     userScore = 0;
     compScore = 0;
+    rounds = 0;
+    draws = 0;
     resetVisible()
     statusTextElement.innerHTML = "Welcome! Pick your weapon.";
     userScoreElement.innerHTML=userScore;
     compScoreElement.innerHTML=compScore;
+    roundElement.innerHTML=rounds;
+    drawElement.innerHTML=draws;
 };
 
 document.querySelector('#choice-rock').addEventListener('click',rollRock);
