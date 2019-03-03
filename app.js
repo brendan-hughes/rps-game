@@ -106,6 +106,7 @@ let reset = function() {
     compScore = 0;
     rounds = 0;
     draws = 0;
+    
     resetVisible()
     statusTextElement.innerHTML = "Welcome! Pick your weapon.";
     userScoreElement.innerHTML=userScore;
