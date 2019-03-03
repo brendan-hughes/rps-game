@@ -125,6 +125,55 @@ body {
   text-align:center;
 }
 
+.footer-link {
+	width: 25px;
+	height: 25px;
+	margin-left:10px;
+	margin-right:10px;
+	vertical-align: center;
+}
+
+footer {
+	display: flex;
+	flex-wrap: unset;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	background: transparent;
+	text-align: center;
+	bottom: 0;
+	transition:0.3s;
+}
+footer a {
+	color: #c9d6df;
+	text-decoration: none;
+	-o-transition: color.3s ease-in, transform 0.15s ease-in;
+	-ms-transition: color.3s ease-in, transform 0.15s ease-in;
+	-moz-transition: color.3s ease-in, transform 0.15s ease-in;
+	-webkit-transition: color.3s ease-in, transform 0.15s ease-in;
+	transition: color.3s ease-in, transform 0.15s ease-in;
+	position:relative;
+	right:5px;
+}
+footer a:not(.footer-link-first) {
+	margin-left:10px;
+}
+
+.portfolio-link {
+  position:absolute;
+  top:5px;
+  left:5px;
+  color:#E6FAFC;
+  text-decoration: none;
+  transition:0.4s;
+}
+.portfolio-link:hover {
+  text-decoration:underline;
+    transition:0.4s;
+}
+
 @media only screen and (max-width: 600px) {
   .choice > img {
     width: 100%;
