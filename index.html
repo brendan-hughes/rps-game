@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Rock | Paper | Scissors</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  </head>
+
+  <body>
+    <header class="main-header">
+      <h1 class="main-header-text">Rock Paper Scissors</h1>
+    </header>
+    <div class='score-board'>
+      <div class="score-board-section">
+        <div class="badge" id="badge-user">User</div>
+        <span class="score" id="user-score">0</span>
+      </div>
+
+      <div class="score-board-section">
+        <div class="badge" id="badge-comp">Computer</div>
+        <span class="score" id="comp-score">0</span>
+      </div>
+
+    </div>
+    <div class="status-field">
+      <p id="status-text">Welcome! Pick your weapon.</p>
+    </div>
+    <div class="choices">
+
+      <div class="choice" id="choice-rock" alt="Rock">
+        <img src="images/rock.png">
+      </div>
+
+      <div class="choice" id="choice-paper" alt="Paper">
+        <img src="images/paper.png">
+      </div>
+
+        <div class="choice" id="choice-scissors">
+          <img src="images/scissors.png" alt="Scissors">
+        </div>
+      </div>
+      <div class="footer">
+        <button id="reset-btn">Reset Score</button>
+      </div>
+
+      <script src="app.js"></script>
+  </body>
+
+</html>
